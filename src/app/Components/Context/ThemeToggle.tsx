@@ -1,17 +1,11 @@
-// temp file for now to test light//dark mode
 "use client";
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { FaMoon, FaRegSun } from "react-icons/fa6";
 
 export function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-
-  useEffect(() => setMounted(true), []);
-
-  // Reserve the space so the navbar doesn't shift
-  if (!mounted) return <div className="size-9" aria-hidden />;
 
   const isDark = resolvedTheme === "dark";
 
@@ -19,9 +13,10 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="size-9 rounded-md border border-border hover:bg-muted"
+      className="flex items-center justify-center size-11 rounded-full border-2 border-border
+       bg-secondary hover:bg-secondary-accent border-primary-accent hover:border-secondary hover:border-2 text-primary-accent hover:text-secondary"
     >
-      {isDark ? "☀️" : "🌙"}
+      {isDark ? <FaRegSun className="size-7"/> : <FaMoon className="size-7"/>}
     </button>
   );
 }

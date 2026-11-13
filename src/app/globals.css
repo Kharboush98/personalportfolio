@@ -3,13 +3,23 @@
 
 
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
+  --background: #F4EFE6;
+
+  --primary: #9B2335;
+  --primary-accent : #540B26;
+  
+  --secondary : #FDF1DE;
+  --secondary-accent: #C9A46A;
 }
 
 .dark {
-  --background: #000000;
-  --foreground: #ff0000;
+--background: #121212;
+  
+  --primary: #D4AF37;
+  --primary-accent : #F4D06F;
+  
+  --secondary : #1A1A1A;
+  --secondary-accent : #E0E0E0;
 }
 
 :root { color-scheme: light; }
@@ -18,14 +28,80 @@
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
   
+  --color-primary: var(--primary);
+  --color-primary-accent: var(--primary-accent);
+  --color-secondary: var(--secondary);
+  --color-secondary-accent : var(--secondary-accent );
+
+
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-jetbrains: var(--font-jetbrains);
+  --font-inter: var(--font-inter);
+  --font-playfair: var(--font-playfair);
 }
  
-
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+@utility nav-container {
+  width: 100%;
+  max-width: 86rem;            
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);  /* min , ratio , max*/
+}
+
+@utility section-container {
+  padding-block: 60px;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+@utility container {
+  padding-block: 5px;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+@utility nav-link {
+  position: relative;
+  --nav-color: var(--secondary);
+  --nav-hover: var(--secondary-accent);
+
+  color : var(--nav-color);
+  transition: color 300ms ease;
+  
+  &::after {
+    content : "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    background: var(--nav-hover);
+    transform: scaleX(0);
+    transform-origin: middle;
+    transition: transform 300ms ease;
+  }
+
+  &:hover , &.active{
+    color: var(--nav-hover);
+  }
+
+  &:hover::after , &.active::after{
+    transform: scaleX(1);
+    background: var(--nav-hover);
+  }
+
+  .dark & {
+    --nav-color: var(--primary);
+    --nav-hover: var(--secondary-accent);
+  }
+  
 }
