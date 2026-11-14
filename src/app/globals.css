@@ -3,23 +3,23 @@
 
 
 :root {
-  --background: #F4EFE6;
+  --background: #ede5d6;
 
-  --primary: #9B2335;
-  --primary-accent : #540B26;
+  --primary: #540B26;
+  --primary-accent : #9B2335;
   
-  --secondary : #FDF1DE;
-  --secondary-accent: #C9A46A;
+  --secondary : #C9A46A;
+  --secondary-accent: #A17733;
 }
 
 .dark {
---background: #121212;
+--background: #1A1A1A;
   
   --primary: #D4AF37;
-  --primary-accent : #F4D06F;
+  --primary-accent : #E5C776;
   
-  --secondary : #1A1A1A;
-  --secondary-accent : #E0E0E0;
+  --secondary : #2A2622;
+  --secondary-accent : #E8DCC9;
 }
 
 :root { color-scheme: light; }
@@ -71,8 +71,8 @@ body {
 
 @utility nav-link {
   position: relative;
-  --nav-color: var(--secondary);
-  --nav-hover: var(--secondary-accent);
+  --nav-color: var(--primary);
+  --nav-hover: var(--primary-accent);
 
   color : var(--nav-color);
   transition: color 300ms ease;
@@ -100,8 +100,19 @@ body {
   }
 
   .dark & {
-    --nav-color: var(--primary);
+    --nav-color: var(--primary-accent);
     --nav-hover: var(--secondary-accent);
   }
   
+}
+
+@theme {
+  --animate-pill-in: pill-in 500ms ease-out backwards;
+
+  @keyframes pill-in {
+    from {
+      opacity: 0;
+      transform: translateX(-2.5rem);
+    }
+  }
 }

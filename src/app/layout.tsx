@@ -38,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
     
       <body className="min-h-screen flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>        
+        <ThemeProvider attribute="class" defaultTheme="system" data-scroll-behavior="smooth" enableSystem disableTransitionOnChange>        
         
         <Navbar/>
         {children}
