@@ -1,9 +1,18 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 export default function Links() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    await navigator.clipboard.writeText("AbdelrhmanKharboush@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <>
       <div className="section-container md:justify-center lg:justify-start py-0 px-20 flex flex-col md:flex-row items-center gap-8 mb-7">
@@ -21,7 +30,7 @@ export default function Links() {
                  hover:bg-primary hover:text-background hover:border-primary transition-all duration-200 relative z-10 
                  active:text-background active:border-primary active:bg-primary active:scale-110"
         >
-          <div className="flex flex-row items-center justify-center font-bold">
+          <div className="flex flex-row items-center justify-center font-bold selection:bg-primary-accent selection:text-background">
             <span>View CV</span>
             <BiChevronRight className="text-2xl group-hover:translate-x-3 group-hover:scale-150 duration-400 " />
           </div>
@@ -32,48 +41,66 @@ export default function Links() {
               className="group shadow-md/30 w-9 h-9 border-2 border-secondary-accent dark:border-secondary-accent rounded-full flex justify-center items-center text-secondary-accent
                dark:text-secondary-accent hover:border-primary text-base hover:bg-primary hover:text-background hover:transition-all duration-500 hover:scale-125
                active:text-background active:border-primary active:bg-primary active:scale-125"
-
-              href="https://www.facebook.com/19kh98"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook className="transition-transform duration-300 group-hover:scale-150" />
-            </a>
-            <a
-              className="group shadow-md/30 w-9 h-9 border-2 border-secondary-accent dark:border-secondary-accent rounded-full flex justify-center items-center text-secondary-accent
-               dark:text-secondary-accent hover:border-primary text-base hover:bg-primary hover:text-background hover:transition-all duration-500 hover:scale-125
-               active:text-background active:border-primary active:bg-primary active:scale-125"
-
-              href="https://www.instagram.com/kharboush98/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram className="transition-transform duration-300 group-hover:scale-150" />
-            </a>
-            <a
-              className="group shadow-md/30 w-9 h-9 border-2 border-secondary-accent dark:border-secondary-accent rounded-full flex justify-center items-center text-secondary-accent
-               dark:text-secondary-accent hover:border-primary text-base hover:bg-primary hover:text-background hover:transition-all duration-500 hover:scale-125
-               active:text-background active:border-primary active:bg-primary active:scale-125"
-
               href="https://www.linkedin.com/in/abdelrhman-kharboush/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaLinkedin className="transition-transform duration-300 group-hover:scale-150" />
             </a>
-            <div>
-              <a
-                className="group shadow-md/30 w-9 h-9 border-2 border-secondary-accent dark:border-secondary-accent rounded-full flex justify-center items-center text-secondary-accent
+
+            <a
+              className="group shadow-md/30 w-9 h-9 border-2 border-secondary-accent dark:border-secondary-accent rounded-full flex justify-center items-center text-secondary-accent
                dark:text-secondary-accent hover:border-primary text-base hover:bg-primary hover:text-background hover:transition-all duration-500 hover:scale-125
                active:text-background active:border-primary active:bg-primary active:scale-125"
+              href="https://github.com/Kharboush98"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="transition-transform duration-300 group-hover:scale-150" />
+            </a>
 
-                href="https://github.com/Kharboush98"
-                target="_blank"
+            <div className="relative flex items-center justify-center">
+              <button
+                className="group shadow-md/30 w-9 h-9 border-2 border-secondary-accent dark:border-secondary-accent rounded-full flex justify-center items-center text-secondary-accent
+                dark:text-secondary-accent hover:border-primary text-base hover:bg-primary hover:text-background hover:transition-all duration-500 hover:scale-125
+                active:text-background active:border-primary active:bg-primary active:scale-125"
                 rel="noopener noreferrer"
+                onClick={handleCopyEmail}
               >
-                <FaGithub className="transition-transform duration-300 group-hover:scale-150" />
-              </a>
+                <MdEmail className="transition-transform duration-300 group-hover:scale-150" />
+              </button>
+
+              <span
+                className={`pointer-events-none absolute top-full mt-2.5 whitespace-nowrap rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-background shadow-md transition-all duration-200 ${
+                  copied
+                    ? "translate-y-0 opacity-100"
+                    : "-translate-y-1 opacity-0"
+                }`}
+              >
+                Copied!
+              </span>
             </div>
+            <a
+              className="group shadow-md/30 w-9 h-9 border-2 border-secondary-accent dark:border-secondary-accent rounded-full flex justify-center items-center text-secondary-accent
+               dark:text-secondary-accent hover:border-primary text-base hover:bg-primary hover:text-background hover:transition-all duration-500 hover:scale-125
+               active:text-background active:border-primary active:bg-primary active:scale-125"
+              href="https://www.facebook.com/19kh98"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook className="transition-transform duration-300 group-hover:scale-150" />
+            </a>
+
+            <a
+              className="group shadow-md/30 w-9 h-9 border-2 border-secondary-accent dark:border-secondary-accent rounded-full flex justify-center items-center text-secondary-accent
+               dark:text-secondary-accent hover:border-primary text-base hover:bg-primary hover:text-background hover:transition-all duration-500 hover:scale-125
+               active:text-background active:border-primary active:bg-primary active:scale-125"
+              href="https://www.instagram.com/kharboush98/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="transition-transform duration-300 group-hover:scale-150" />
+            </a>
           </div>
         </div>
       </div>

@@ -3,16 +3,16 @@ import Links from "../Links/Links";
 
 export default function Footer() {
   return (
-    <>
+    <section id="contact">
       <div className="bg-background font-playfair shadow-[0_-6px_6px_-6px] shadow-background">
-        <div className="section-container px-0 max-w-[100rem]">
+        <div className="section-container px-0 max-w-[100rem] selection:bg-primary-accent selection:text-background">
           <div className="flex flex-col items-center justify-center z-10">
-            <div className="text-primary-accent text-7xl mb-15 font-semibold text-shadow-lg/30">
+            <div className="text-primary-accent text-7xl mb-15 font-semibold text-shadow-lg/15">
               Want To
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-y-15 md:gap-10 md:px-10 items-start">
               <div className="col-span-2 col-start-2 md:col-start-auto">
-                <div className="text-center mb-5 text-primary text-3xl lg:text-[26px] xl:text-4xl font-semibold">
+                <div className="text-center mb-5 text-primary text-shadow-lg/15 text-3xl lg:text-[26px] xl:text-4xl font-semibold">
                   Offer job opportunity?
                 </div>
                 <div className="text-center p-3 font-jetbrains text-xl">
@@ -26,7 +26,7 @@ export default function Footer() {
               </div>
 
               <div className="col-span-2 col-start-2 md:col-start-auto">
-                <div className="text-center mb-5 text-primary text-3xl xl:text-4xl font-semibold">
+                <div className="text-center mb-5 text-primary text-shadow-lg/15 text-3xl xl:text-4xl font-semibold">
                   Connect?
                 </div>
                 <div className="text-center p-3 font-jetbrains text-xl">
@@ -39,7 +39,7 @@ export default function Footer() {
               </div>
 
               <div className="col-span-2 col-start-2 lg:col-start-auto">
-                <div className="text-center mb-5 text-primary text-3xl xl:text-4xl font-semibold">
+                <div className="text-center mb-5 text-primary text-shadow-lg/15 text-3xl xl:text-4xl font-semibold">
                   Build something?
                 </div>
                 <div className="text-center p-3 font-jetbrains text-xl">
@@ -55,12 +55,13 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col justify-center items-center">
-          <div>
+          <div className="text-primary text-xl">Email : AbdelrhmanKharboush@gmail.com</div>
+          <div className="mt-3">
             <Links/>
           </div>
         </div>
 
       </div>
-    </>
+    </section>
   );
 }

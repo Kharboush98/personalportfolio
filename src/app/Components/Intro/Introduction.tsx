@@ -11,7 +11,7 @@ export default function Introduction() {
     <>
       <section id="intro" className="font-playfair font-bold bg-background">
         <div className="section-container grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-          <div className="flex flex-col gap-2 text-center md:text-left order-2 md:order-0">
+          <div className="flex flex-col gap-2 text-center md:text-left order-2 md:order-0 selection:bg-primary-accent selection:text-background">
             <h1 className="flex flex-col items-center md:items-start gap-0 leading-1">
               <span className="lg:text-4xl text-3xl text-primary-accent ">
                 Hello! I'm
@@ -28,7 +28,7 @@ export default function Introduction() {
                     hover:text-background hover:text-shadow-black hover:after:scale-x-100
                     ${
                         isActive
-                        ? "text-background text-shadow-black after:scale-x-100"
+                        ? "text-background text-shadow-lg/15 text-shadow-black after:scale-x-100"
                         : "text-secondary-accent text-shadow-lg/15 text-shadow-black after:scale-x-0"
                     }`}
               >
@@ -50,12 +50,12 @@ export default function Introduction() {
               ></div>
               <div
                 className="relative z-10 flex items-center justify-center overflow-hidden rounded-3xl ring-4 ring-primary
-              border-6 border-primary-accent bg-primary-accent -rotate-3"
+              border-6 border-primary-accent bg-primary-accent -rotate-3 "
               >
                 <img
                   src="/profile.jpeg"
                   alt="Abdelrhman Kharboush"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl selection:bg-primary-accent"
                 />
               </div>
             </div>

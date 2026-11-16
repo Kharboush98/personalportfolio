@@ -103,6 +103,12 @@ body {
     --nav-color: var(--primary-accent);
     --nav-hover: var(--secondary-accent);
   }
+
+  &::selection {
+    /* selection:bg-primary-accent selection:text-background */
+    background: var(--primary);
+    color : var(--background)
+  }
   
 }
 
