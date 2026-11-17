@@ -1,7 +1,9 @@
+"use client"
 import React from "react";
 import { IoIosCodeWorking } from "react-icons/io";
 import { projects } from "@/app/Content/projects";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import SectionScroller from "../SectionScroller/SectionScroller";
 
 const slots = [
   "lg:col-start-2 lg:col-span-4 lg:row-start-1 lg:row-span-7",
@@ -35,10 +37,10 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-fit scroll-mt-16 py-32 bg-primary-accent font-playfair "
+      className="min-h-fit scroll-mt-16 pt-32 bg-primary-accent font-playfair "
     >
       <div className="container selection:bg-background selection:text-primary-accent">
-        <h1 className="mb-12 text-shadow-lg/30 text-5xl sm:text-[66px] text-secondary font-bold text-center">
+        <h1 className="mb-18 text-shadow-lg/30 text-5xl sm:text-[66px] text-secondary font-bold text-center header-underline">
           <div className="flex items-center justify-center gap-4">
             <IoIosCodeWorking className="text-4xl sm:text-6xl drop-shadow-lg drop-shadow-black/50" />
             Projects
@@ -46,46 +48,8 @@ export default function Projects() {
         </h1>
 
         <div className="hover:drop-shadow-2xl hover:drop-shadow-black hover:translate-x-1 hover:translate-y-1"></div>
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-16 lg:grid-rows-18 gap-4">
-          
-          <div className="min-h-64 bg-black lg:col-start-2 lg:col-span-4 lg:row-start-1 lg:row-span-7 rounded-xl">
-            <h3 className="font-heading text-xl font-bold text-white text-center ">
-              Project Title 1
-            </h3>
-          </div>
 
-          <div className="min-h-64 bg-black lg:col-start-6 lg:col-span-6 lg:row-start-1 lg:row-span-9 rounded-xl">
-            <h3 className="font-heading text-xl font-bold text-white text-center">
-              Project Title 2
-            </h3>
-          </div>
-
-          <div className="min-h-64 bg-black lg:col-start-12 lg:col-span-5 lg:row-start-2 lg:row-span-7 rounded-xl">
-            <h3 className="font-heading text-xl font-bold text-white text-center">
-              Project Title 3
-            </h3>
-          </div>
-
-          <div className="min-h-64 bg-black lg:col-start-1 lg:col-span-5 lg:row-start-8 lg:row-span-8 rounded-xl">
-            <h3 className="font-heading text-xl font-bold text-white text-center">
-              Project Title 4
-            </h3>
-          </div>
-
-          <div className="min-h-64 bg-black lg:col-start-6 lg:col-span-6 lg:row-start-10 lg:row-span-9 rounded-xl">
-            <h3 className="font-heading text-xl font-bold text-white text-center">
-              Project Title 5
-            </h3>
-          </div>
-
-          <div className="min-h-64 bg-black lg:col-start-12 lg:col-span-4 lg:row-start-9 lg:row-span-8 rounded-xl">
-            <h3 className="font-heading text-xl font-bold text-white text-center">
-              Project Title 6
-            </h3>
-          </div>
-        </div> */}
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-16 lg:grid-rows-18">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-16 lg:grid-rows-18 mb-12">
           {slots.map((slotClass, i) => {
             const project = projects.find((p) => p.slot === i + 1);
             if (!project) return null;
@@ -103,6 +67,8 @@ export default function Projects() {
         </div>
 
       </div>
+
+      <SectionScroller targetId="skills" bgClass="bg-primary-accent" accentClass="border-primary text-primary" curveColorClass="text-primary-accent"/>
     </section>
   );
 }

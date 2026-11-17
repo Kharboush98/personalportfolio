@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
 import Links from "../Links/Links";
+import SectionScroller from "../SectionScroller/SectionScroller";
 
 export default function Introduction() {
   const [isActive, setIsActive] = useState(false);
@@ -64,34 +65,7 @@ export default function Introduction() {
 
         <Links />
 
-        <div className="relative pb-18 bg-background">
-          <div className="absolute inset-x-0 bottom-0 z-10 h-0">
-            <svg
-              aria-hidden
-              viewBox="0 0 400 96"
-              fill="currentColor"
-              className="absolute -top-px left-1/2 w-72 -translate-x-1/2 text-background md:w-100"
-            >
-              <path d="M0 0C50 0 70 10 90 30C120 60 150 96 200 96C250 96 280 60 310 30C330 10 350 0 400 0Z" />
-            </svg>
-
-            <a
-              href="#projects"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .getElementById("projects")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-              aria-label="Scroll to projects"
-              className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            >
-              <span className="grid size-20 place-items-center rounded-full border-3 border-primary-accent text-primary-accent text-5xl animate-bounce motion-reduce:animate-none">
-                <BiChevronDown />
-              </span>
-            </a>
-          </div>
-        </div>
+        <SectionScroller targetId="projects"/>
       </section>
     </>
   );

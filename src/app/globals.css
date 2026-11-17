@@ -122,3 +122,18 @@ body {
     }
   }
 }
+
+@utility header-underline {
+  @apply relative mx-auto w-fit pb-3 text-center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: radial-gradient(ellipse at center, var(--color-secondary) 0%, transparent 75%);
+    clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+  }
+}
