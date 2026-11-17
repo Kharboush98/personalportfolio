@@ -22,7 +22,7 @@ export default function SectionScroller({
 
   return (
     <>
-      <div className={`relative pb-18 ${bgClass}`}>
+      <div className={`relative pb-18 ${bgClass} `}>
       <div className="absolute inset-x-0 bottom-0 z-10 h-0">
         <svg
           aria-hidden="true"

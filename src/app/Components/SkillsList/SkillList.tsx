@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import { GoDotFill } from "react-icons/go";
+import { motion } from 'framer-motion'
 
 interface SkillListProps {
   title?: string;
@@ -8,54 +8,47 @@ interface SkillListProps {
 }
 
 export default function SkillList({ title, skills }: SkillListProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [revealed, setRevealed] = useState(false);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setRevealed(true);
-        observer.disconnect();
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <>
-    <div ref={containerRef} className="space-y-5 mb-10">
-      <div className="flex items-center justify-start gap-1 font-semibold text-secondary-accent dark:text-secondary text-2xl">
-
-      <GoDotFill />
-      {title && <h3 className="text-5xl font-semibold text-secondary-accent dark:text-secondary">{title}</h3>}
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="space-y-5 mb-10"
+    >
+      <div className="flex items-center justify-start gap-1 font-semibold text-primary dark:text-secondary-accent text-2xl w-fit
+      bg-secondary p-2">
+        <GoDotFill />
+        {title && (
+          <h3 className="text-5xl font-semibold">
+            {title}
+          </h3>
+        )}
       </div>
-      
+
       <div className="flex flex-wrap gap-4 font-jetbrains">
         {skills.map((skill, i) => (
-          <span
+          <motion.span
             key={skill}
             data-pill
-            style={{ animationDelay: `${i * 100}ms` }}
-            className={`rounded-full px-4 py-2 border-2  border-secondary text-secondary cursor-pointer
-              dark:hover:bg-secondary hover:bg-secondary-accent hover:text-background dark:hover:text-secondary-accent hover:border-primary hover:scale-115 transition-all duration-200 relative z-10 ${
-              revealed
-                ? "animate-pill-in motion-reduce:animate-none "
-                : "opacity-0"
-            }`}
+            initial={{ opacity: 0, y: 0, x: -5}}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              duration: 0.4,
+              delay: i * 0.1,
+              ease: 'easeOut',
+            }}
+            className="rounded-full bg-primary px-4 py-2 border-2 border-secondary text-secondary cursor-pointer
+              dark:hover:bg-secondary hover:bg-secondary hover:text-primary hover:font-semibold dark:hover:text-secondary-accent hover:border-primary hover:scale-115 transition-all duration-200 relative z-10"
           >
             {skill}
-          </span>
+          </motion.span>
         ))}
       </div>
-
-    </div>
+    </motion.div>
     </>
   )
 }

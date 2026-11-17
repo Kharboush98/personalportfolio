@@ -132,8 +132,50 @@ body {
     bottom: -8;
     left: 0;
     width: 100%;
-    height: 5px;
+    height: 3px;
+    /* background: var(--color-secondary) */
     background: radial-gradient(ellipse at center, var(--color-secondary) 0%, transparent 75%);
-    clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+    /* clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%); */
   }
+}
+
+@utility bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, color-mix(in srgb, var(--color-secondary) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-secondary) 7%, transparent) 1px, transparent 1px);
+
+  .dark & {
+      background-image: 
+    linear-gradient(to right, color-mix(in srgb, var(--color-secondary) 20%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-secondary) 20%, transparent) 1px, transparent 1px);
+  }
+}
+
+@utility bg-diagonal-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--secondary) 12%, transparent) 0px,
+    color-mix(in srgb, var(--secondary) 12%, transparent) 1px,
+    transparent 1px,
+    transparent 16px
+  );
+}
+
+@utility bg-linen-weave {
+   background-image: 
+    repeating-linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--secondary) 8%, transparent) 0px,
+      color-mix(in srgb, var(--secondary) 8%, transparent) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--primary) 4%, transparent) 0px,
+      color-mix(in srgb, var(--primary) 4%, transparent) 1px,
+      transparent 1px,
+      transparent 4px
+    );
 }
