@@ -46,6 +46,12 @@ body {
   color: var(--foreground);
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 @utility nav-container {
   width: 100%;
   max-width: 86rem;            
