@@ -34,12 +34,12 @@ export default function Education() {
     <>
       <section
         id="education"
-        className="min-h-fit scroll-mt-16 py-22 bg-primary-accent font-playfair bg-linen-weave"
+        className="min-h-fit scroll-mt-16 py-22 border-b-4 border-secondary bg-primary-accent font-playfair bg-linen-weave"
       >
         <div className="container selection:bg-background selection:text-primary-accent">
           <h1 className="mb-6 text-shadow-lg/30 text-5xl sm:text-[66px] text-secondary font-bold text-center">
             <div className="flex items-center justify-center gap-4">
-              <FaUserGraduate className="text-4xl sm:text-6xl drop-shadow-lg drop-shadow-black/30" />
+              <FaUserGraduate className="text-4xl lg:text-6xl drop-shadow-lg drop-shadow-black/30" />
               Education
             </div>
           </h1>

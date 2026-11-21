@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "./Components/Context/Theme-Provider";
-import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
+import Navbar from "./Components/layout/Navbar/Navbar";
+import Footer from "./Components/layout/Footer/Footer";
 import { ThemeToggle } from "./Components/Context/ThemeToggle";
+import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,18 +37,27 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${playfair.variable} ${jetbrains.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-    
       <body className="min-h-screen flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="system" data-scroll-behavior="smooth" enableSystem disableTransitionOnChange>        
-        
-        <Navbar/>
-        {children}
-        <div className="fixed bottom-4 right-4 z-50"><ThemeToggle/></div>
-        <Footer/>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          data-scroll-behavior="smooth"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <body className="flex min-h-dvh flex-col">
+            <Suspense fallback={<p>Loading search…</p>}>
+              <Navbar />
+            </Suspense>
 
+            {children}
+            <div className="fixed bottom-4 right-4 z-50">
+              <ThemeToggle />
+            </div>
+            <Footer />
+          </body>
         </ThemeProvider>
       </body>
-    
     </html>
   );
 }

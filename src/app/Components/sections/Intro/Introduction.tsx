@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
-import Links from "../Links/Links";
-import SectionScroller from "../SectionScroller/SectionScroller";
+import Links from "../../ui/Links/Links";
+import SectionScroller from "../../ui/SectionScroller/SectionScroller";
 
 export default function Introduction() {
   const [isActive, setIsActive] = useState(false);

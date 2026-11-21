@@ -179,3 +179,22 @@ body {
       transparent 4px
     );
 }
+
+.swiper {
+  --swiper-theme-color: var(--primary);
+  --swiper-pagination-color: var(--secondary-accent);
+  --swiper-pagination-bullet-inactive-color: var(--secondary);
+  --swiper-pagination-bullet-inactive-opacity: 0.45;
+
+  .dark & {
+    --swiper-theme-color: var(--background);
+    --swiper-pagination-color: var(--background);
+    --swiper-pagination-bullet-inactive-color: var(--secondary);
+  }
+}
+
+@layer base {
+  html {
+    scrollbar-color: var(--primary) var(--background);
+  }
+}

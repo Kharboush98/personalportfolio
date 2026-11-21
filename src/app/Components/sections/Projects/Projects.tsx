@@ -2,8 +2,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IoIosCodeWorking } from "react-icons/io";
 import { projects } from "@/app/Content/projects";
-import ProjectCard from "../ProjectCard/ProjectCard";
-import SectionScroller from "../SectionScroller/SectionScroller";
+import ProjectCard from "../../ui/ProjectCard/ProjectCard";
+import SectionScroller from "../../ui/SectionScroller/SectionScroller";
 import { motion, useInView, Variants } from "framer-motion";
 
 const slots = [
@@ -100,7 +100,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-fit scroll-mt-16 pt-32 pb-16 border-b-4 border-secondary bg-primary-accent font-playfair bg-linen-weave"
+      className="min-h-fit scroll-mt-16 pt-32 pb-16 border-b-4 border-secondary bg-primary-accent font-playfair bg-diagonal-hatch"
     >
       <div className="container selection:bg-background selection:text-primary-accent">
         <h1 className="mb-18 text-shadow-lg/30 text-5xl sm:text-[66px] text-secondary dark:text-secondary font-bold text-center">

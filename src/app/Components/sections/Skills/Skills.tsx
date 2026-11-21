@@ -1,8 +1,8 @@
 "use client"
 import React from "react";
 import { BiSitemap } from "react-icons/bi";
-import SkillList from "../SkillsList/SkillList";
-import SectionScroller from "../SectionScroller/SectionScroller";
+import SkillList from "../../ui/SkillsList/SkillList";
+import SectionScroller from "../../ui/SectionScroller/SectionScroller";
 
 const frontendSkills = [
   "HTML",
@@ -11,21 +11,27 @@ const frontendSkills = [
   "TypeScript",
   "React.js",
   "Next.js",
+  "Express.js",
+  "Razor pages",
   "Tailwind CSS",
   "Bootstrap",
   "jQuery",
   "NextAuth.js",
+  "React Hook Form",
+  "Zod Validation",
 ];
 const backendSkills = [
   "C#",
+  "PHP",
   "ASP.NET",
   "Node.js",
   "SQL",
   "SQL Server",
+  "MVC",
   "REST API design",
   "MongoDB",
 ];
-const tools = ["Git/Github", "Figma", "Wordpress", "WooCommerce", "Elementor" , "Kirki Customizer"];
+const tools = ["Git","Github", "Unity", "Figma", "Wordpress", "WooCommerce", "Elementor" , "Kirki Customizer"];
 
 export default function Skills() {
   return (
