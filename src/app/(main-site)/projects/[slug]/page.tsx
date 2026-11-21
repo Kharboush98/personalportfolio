@@ -34,9 +34,19 @@ export default async function page({
         className="min-h-fit selection:bg-secondary selection:text-primary scroll-mt-16 pb-16 font-playfair bg-linen-weave border-b-2 border-primary"
       >
         <div className="section-container">
+          <div className="pb-10 md:hidden">
+            <h1
+              className="relative mb-5 w-fit font-playfair text-primary text-7xl font-bold 
+                        after:absolute after:-bottom-2 after:left-0 after:h-1 after:w-full after:bg-current"
+            >
+              {project?.title}
+            </h1>
+            <p className="font-jetbrains text-xl">{project?.description}</p>
+          </div>
+
           <div className="flex flex-col gap-8 md:flex-row">
-            <div className="min-w-0 md:flex-2 order-2 md:order-1 ">
-              <div className="pb-10">
+            <div className="min-w-0 md:flex-2 order-2 md:order-1">
+              <div className="pb-10 hidden md:block">
                 <h1
                   className="relative mb-5 w-fit font-playfair text-primary text-7xl font-bold 
                         after:absolute after:-bottom-2 after:left-0 after:h-1 after:w-full after:bg-current"
@@ -82,7 +92,7 @@ export default async function page({
               </div>
             </div>
 
-            <div className="min-w-0 md:flex-1 order-1 md:order-2 lg:sticky lg:top-24 lg:self-start">
+            <div className="min-w-0 md:flex-1 md:order-2 order-1 lg:sticky lg:top-24 lg:self-start">
               <ProjectGallery images={imgs} title={project.title} />
 
               <div className="dark:bg-primary-accent mb-5 bg-primary bg-grid-pattern font-jetbrains text-secondary flex flex-col p-4 items-start justify-centers gap-3 rounded-2xl">
@@ -111,13 +121,13 @@ export default async function page({
 
               <div
                 className="dark:bg-background border-2 border-primary bg-grid-pattern font-jetbrains text-secondary flex flex-col
-               p-4 items-start justify-centers gap-3 rounded-2xl "
+               p-4 items-start justify-centers gap-3 rounded-2xl"
               >
                 <div className="text-primary text-xl">Stack</div>
                 {project?.tech && project.tech.length > 0 && (
                   <div className="flex flex-wrap gap-3">
                     {project.tech.map((item) => (
-                      <div className="bg-primary-accent p-2 rounded-full font-extrabold">
+                      <div className="bg-primary-accent p-2 rounded-full font-extrabold hover:scale-105">
                         <div key={item} className="text-secondary text-[12px]">
                           {item}
                         </div>

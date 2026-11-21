@@ -36,7 +36,7 @@ export default function ProjectGallery({
           type="button"
           onClick={openModal}
           aria-label="Open image full screen text"
-          className="text-primary font-bold cursor-pointer mb-2"
+          className="text-primary font-bold cursor-pointer rounded-3xl mb-2 p-2 border-2 border-primary hover:text-background hover:bg-primary"
         >
           View in full Screen
         </button>
