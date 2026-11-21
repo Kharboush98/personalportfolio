@@ -40,7 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-screen flex flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           data-scroll-behavior="smooth"
           enableSystem
           disableTransitionOnChange

@@ -6,8 +6,13 @@ import { FaMoon, FaRegSun } from "react-icons/fa6";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const isDark = resolvedTheme === "dark";
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <button

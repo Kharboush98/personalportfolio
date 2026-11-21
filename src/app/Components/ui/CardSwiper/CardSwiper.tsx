@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   FreeMode,
@@ -37,8 +37,25 @@ export default function CardsSwiper<T>({
 }: CardsSwiperProps<T>) {
   const canLoop = loop && items.length >= 6;
 
+  const [mounted, setMounted] = useState(false);
   const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className={`grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 pb-10 ${className}`}>
+        {items.slice(0, 3).map((item, idx) => (
+          <div key={getKey ? getKey(item, idx) : idx}>
+            {renderCard(item, idx)}
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center gap-3">

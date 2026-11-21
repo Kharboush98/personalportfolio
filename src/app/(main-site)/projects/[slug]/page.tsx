@@ -4,7 +4,12 @@ import { ProjectImage } from "@/app/DataTypes/ProjectType";
 import notFound from "@/app/not-found";
 import { BiLinkExternal } from "react-icons/bi";
 import { FaGithub } from "react-icons/fa6";
-import { Suspense } from "react";
+
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
 
 export default async function page({
   params,
