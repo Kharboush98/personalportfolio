@@ -19,12 +19,12 @@ const edu: EduItem[] = [
   },
   {
     Title: "ReactJS Front-End Development Course",
-    Duration: "Nov 2025 - Mar 2026",
+    Duration: "Nov 2025 - May 2026",
     IssuedBy: "Route Academy | Programming & Web Development Courses",
   },
   {
     Title: ".Net Back-End Development Course",
-    Duration: "Jun 2026 - Dec 2026",
+    Duration: "Jul 2026 - Jan 2027",
     IssuedBy: "Route Academy | Programming & Web Development Courses",
   },
 ];
